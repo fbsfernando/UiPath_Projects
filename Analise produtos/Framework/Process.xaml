@@ -1,0 +1,257 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Browser" Type="InArgument(ui:UiElement)" />
+  </x:Members>
+  <this:Process.in_Browser>
+    <InArgument x:TypeArguments="ui:UiElement" />
+  </this:Process.in_Browser>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1283,3094</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="570,2461" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="products" />
+      <Variable x:TypeArguments="x:String" Name="ProdName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="528,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Started Process"</mca:CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser" sap:VirtualizedContainerService.HintSize="528,2056" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="f9b7a1fd-995c-4367-84af-60d9c7a9040a" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="494,1920" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGoToUrl sap2010:Annotation.AnnotationText="Navega até a URL do Google Shopping presente na váriável &quot;URL_GOOGLE_SHOPPING&quot; planilha de configurações." DisplayName="Go To Google Shopping URL" sap:VirtualizedContainerService.HintSize="452,138" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Version="V1">
+              <uix:NGoToUrl.Url>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Config["URL_GOOGLE_SHOPPING"].ToString()</mca:CSharpValue>
+                </InArgument>
+              </uix:NGoToUrl.Url>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NGoToUrl>
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Insere no campo de pesquisa o número EAN/GTIN presente na planilha de códigos de produtos." ClickBeforeMode="Single" DisplayName="Type Product EAN" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="452,258" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="f9b7a1fd-995c-4367-84af-60d9c7a9040a" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://shopping.google.com.br/?pli=1" DesignTimeRectangle="691, 101, 588, 44" ElementType="InputBox" FriendlyName="'INPUT REsRA'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='search' /&gt;" FuzzyAccuracy="0.4" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='search' class='r7gAOb yyJm8b' aaname='' /&gt;" Guid="4d5a96d4-eca0-4d30-83e7-a9ff1e5f8348" ImageBase64="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" InformativeScreenshot="dc11c9fd4f955db67fe53b021de5201b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Google Shopping: compre on-line, compare preços e onde comprar' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="648, 108, 36, 30" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='FrV7Ge' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAiCAYAAAAtZZsLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEOSURBVFhH7Zi9CsIwFEbz/o/g5KSLi7g4ODg4OAiCm4ibVFRc1LXc8kk/qNAWkntDg+RAaJsOObk/GeLuj6dcipuUZSkp4iCXMi7VyBFXP5MlC2rJglr+X/D1/shuf5Dj6SzF1f5MDRaE2GK5ktF48jOms/n3nxVBgogUhRA9fGPg3VoySJCRa0sp5debbT2jw1sQtQYBPLvgBiyIIshUt0XYF29BprBvcW7Cog69BbEoFu+rsUFTDCCATm1LM9M7WJMARpEiEIUYpDnfV6M+BAkCSDJazYE5y6MmWJBAFELNpmnKayXVgl1YSUYTBBaSUQUBJUObJrqgliyoJQtqyYJa0r88Sv76Le0LTJEK9L/rF5C4brAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">in_TransactionItem[0].ToString()</mca:CSharpValue>
+                </InArgument>
+              </uix:NTypeInto.Text>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click Search" sap:VirtualizedContainerService.HintSize="452,156" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9b7a1fd-995c-4367-84af-60d9c7a9040a" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://shopping.google.com.br/" DesignTimeRectangle="656, 113, 20, 20" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='svg' type='' class='' aaname='' /&gt;" Guid="6457d279-c77b-40cf-a224-b528a9412f98" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADmSURBVEhL7ZIvD8IwEEf5KJBMEhIcQaBIEBgEAoFAIDAIEgyGoDB86JJH8ktKe233J3MTL9va3b3rXUfjSeX6ZBAUKQqms7nb7Q9uvdm6xXJl/pMjKSDx5Xpzr/fnj/vj+duzYixMAZUqIdXzDbw3lZgCVW61RPLj6RztWUQCek0CnuGeUAHWXkgrgVplnTAkEqgFuWAVUWcOkYAggnM97tQiIAE3xWqT2tN6yKBTKBEiEiPVem5GPqYAkKhaH9aaXNWkQCAioT90X16SFAUp6kpaC6COpJMAJEkNvbOgxCAo0rOgcl+WumObaahjdgAAAABJRU5ErkJggg==" InformativeScreenshot="15f04082b47949fa517245adc7eb923f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Google Shopping: compre on-line, compare preços e onde comprar' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="640, 100, 640, 46" ElementType="InputBox" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;form&amp;gt;div&amp;gt;div' parentid='kO001e' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='kO001e' tag='DIV' class='z86TMb' aaname='' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:TriggerScope sap2010:Annotation.AnnotationText="Aguarda click de interação do usuário no produto desejado para extrair a tabela de valores." DisplayName="Trigger Mouse Button Scope" sap:VirtualizedContainerService.HintSize="452,474" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="Sequential">
+              <ui:TriggerScope.Action>
+                <ActivityAction x:TypeArguments="ui:EventInfoTriggerArgs">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:EventInfoTriggerArgs" Name="args" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Event handler" sap:VirtualizedContainerService.HintSize="242,116" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:TriggerScope.Action>
+              <ui:TriggerScope.Triggers>
+                <scg:List x:TypeArguments="Activity" Capacity="4">
+                  <ui:MouseTriggerV2 BlockEvent="False" DisplayName="Mouse Trigger" sap:VirtualizedContainerService.HintSize="416,84" sap2010:WorkflowViewState.IdRef="MouseTriggerV2_1" KeyModifiers="None" MouseButton="BTN_LEFT" />
+                </scg:List>
+              </ui:TriggerScope.Triggers>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:TriggerScope>
+            <uix:NExtractData sap2010:Annotation.AnnotationText="Extrai dados da tabela de produtos." AppendResults="False" ContinueOnError="True" DisplayName="Extract Products Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='New column 1'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='New column 2 Url'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='3' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column4' attr='href'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='5' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="452,187" sap2010:WorkflowViewState.IdRef="NExtractData_2" InteractionMode="Simulate" MaximumResults="0" ScopeIdentifier="f9b7a1fd-995c-4367-84af-60d9c7a9040a" Timeout="2" Version="V1">
+              <uix:NExtractData.DataTable>
+                <InOutArgument x:TypeArguments="sd:DataTable">
+                  <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">products</mca:CSharpReference>
+                </InOutArgument>
+              </uix:NExtractData.DataTable>
+              <uix:NExtractData.NextLink>
+                <uix:TargetAnchorable BrowserURL="https://www.google.com.br/shopping/product/1343784252955762630/offers?hl=pt-BR&amp;psb=1&amp;q=78900776&amp;oq=&amp;gs_lcp=Cgtwcm9kdWN0cy1jYxAMUABYAGDjI2gCcAB4AIABAIgBAJIBAJgBALABAA&amp;sclient=products-cc&amp;safe=active&amp;prds=eto:17713053469220977561_0,pid:14726728877337773413,rsk:PC_11634453313834142805&amp;sa=X&amp;ved=0ahUKEwisg5Dyubr7AhUdFVkFHf_kA0YQ3q4ECLcJ" DesignTimeRectangle="556, 808, 52, 17" ElementType="Text" FriendlyName="'Próxima'" FullSelectorArgument="&lt;webctrl aaname='Próxima' parentid='sh-fp__pagination-button-wrapper' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Próxima' parentid='sh-fp__pagination-button-wrapper' tag='A' type='' class='internal-link' check:innerText='Próxima' /&gt;" Guid="2e5f4746-1b70-4379-ab24-a91932697ba0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAVCAYAAAATtC32AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKYSURBVFhH7ZbNaxpBGMb7t3ny5Cm3XvwDvOWUU09LCCFgIJgSsEhZPEgIC4WK0FLSUppSagmJoVAQGkISSgRhdT909enz7szSXS1mqQlU8QfCzs7Mu+8z78f4BEvOSuCisxKYnjHsrw7WNvuwrsb63WzsSw/Ny0CPHoeEwJtGHxmjl/jlig6s70O9YgZ3HoxienFCq9ZD9oUHW48fg2mBey5u9BjuED8/MioUarbTO/4/MVtgSID3FUbyyOezh12jj3LDQX6zh0JjwHdMzTMHG0UV8SyjaJ7rtBsNUNvrYS3cKyhb2QMXHY6aVe6pemrq2kXBcFA7VrbFVv4lfen6KJe4R2xv8duRbeGXh/3nai7DPeuWP5UN/yCQBksOa2cI22VU2+JQH/unksYjdL5MRFzmeSjWNZ8vdI3KM5kWyEN75aPjjuBfudig0yLKvKBtP8CPeh/ZbQetcAOF73B93Yc/4rBL3zg2Pidr+h6BdJhOyYd3v8lGJdBsq1mJnjiZO4wiJIzROqRjkeMyPuK44qDMaBbqEnXF3yJ4Is6GjHFict6M7JBwjT6gUQC7O1TiNGIvW4utJ/c2GTlB413klErRKALAABadNj4lT80+nqxl7tumvR2e/oRDkwKbahSSmBfiAoXbWIpGv/h6kiJF46QT2Hk7YafHDit1RYFNV78jcwnUhxamqE6gqfVkToFpUjQIUy1XdWEdxBvOnAKn1uuUfliBRDeZsBFIzZ5KU4k1Gd1Y3tzxmY1DHKzpu3IugWwqz5gVxocB/F4QXmdPJUseXCBPTq6JdakxqVm5Js70H4ORD5PXR56dUaEbTonfYC3OJZDY52yAW+q7cqW85h+HTMVjf/1DQuAyshK46KwELjpLLhD4DVPohcP4J3xHAAAAAElFTkSuQmCC" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Valda Classic Lata 50g | Google Shopping' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NExtractData.NextLink>
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="47, 394, 1022, 1555" FriendlyName="'UltrafarmaAbre em'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TBODY' /&gt;" Guid="067c4502-bbc6-433d-8110-990ffff1f280" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Valda Classic Lata 50g | Google Shopping' /&gt;" SearchSteps="Selector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NExtractData.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NExtractData>
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Adiciona nova coluna &quot;EAN&quot; na tabela extraída." ColumnName="EAN" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="452,216" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1">
+              <ui:AddDataColumn.DataTable>
+                <InArgument x:TypeArguments="sd:DataTable">
+                  <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">products</mca:CSharpValue>
+                </InArgument>
+              </ui:AddDataColumn.DataTable>
+              <ui:AddDataColumn.DefaultValue>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">in_TransactionItem[0].ToString()</mca:CSharpValue>
+                </InArgument>
+              </ui:AddDataColumn.DefaultValue>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddDataColumn>
+            <ui:AppendRange sap2010:Annotation.AnnotationText="Adiciona os dados dos produtos extraídos na planilha &quot;produtos.xlsx&quot;" DisplayName="Append Products List in Table" sap:VirtualizedContainerService.HintSize="452,157" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="PRODUTOS" WorkbookPath="produtos.xlsx">
+              <ui:AppendRange.DataTable>
+                <InArgument x:TypeArguments="sd:DataTable">
+                  <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">products</mca:CSharpValue>
+                </InArgument>
+              </ui:AppendRange.DataTable>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AppendRange>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.InUiElement>
+        <InArgument x:TypeArguments="ui:UiElement">
+          <mca:CSharpValue x:TypeArguments="ui:UiElement" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_Browser</mca:CSharpValue>
+        </InArgument>
+      </uix:NApplicationCard.InUiElement>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="528,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+  </Sequence>
+</Activity>
